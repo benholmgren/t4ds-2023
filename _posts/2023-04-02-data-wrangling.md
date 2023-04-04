@@ -23,4 +23,62 @@ download, and you import shapefiles (on Mac) with
 file -> import
 ```
 
+The glacier data should look something like this:
+
 ![google](../assets/images/googleearth.png)
+
+After gaining some familiarity with the data that we're working with, let's start actually working with
+the data in R. Open R Studio, and begin a new R script in your desired location.
+Import the R 'Geospatial' Data Abstraction Library (RGDAL), and the Spatial Data library (SP), which we will use to upload and manipulate the shapefiles:
+
+```
+library(rgdal)
+library(sp)
+```
+
+Import the 1966 glacier data using the corresponding `readOGR` method from RGDAL. You must use the 
+absolute path of the directory storing the GIS data, and also give the prefix of the data in the layer 
+argument. On a Mac, this is:
+
+```
+glaciers_66 <- readOGR(dsn = "/Users/you/INSERT YOUR PATH HERE/GNPglaciers_1966",
+layer = "GNPglaciers_1966", verbose = FALSE)
+```
+
+(Note that the relative path `~/GNPglaciers_1966` won't work for the dsn argument)
+
+View the first glacier you've uploaded using the `head` method:
+
+```
+first <- head(county, 1)
+first
+```
+
+Notice that the data is pretty big! We have uploaded every glacier in GNP, so there's a lot in there.
+You can view the first 5 glaciers if you want to get more of a sense of the complexity of our data.
+
+```
+first_five <- head(county, 5)
+first_five
+```
+
+Notice that the fundamental glacier shape data is stored in polygon format.
+The standard R command for plotting is carried along with GIS data as well.
+Plot the first glacier to visualize it, it should look familiar to what you saw on Google Earth.
+
+```
+plot(first)
+```
+
+![glacier1](../assets/images/glacier1.png)
+
+
+We can also go ahead and view all of the glaciers in GNP in the same way.
+
+```
+plot(glaciers_66)
+```
+
+![glacier2](../assets/images/glacier1.png)
+
+
