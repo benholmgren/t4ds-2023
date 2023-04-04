@@ -1,7 +1,7 @@
 ---
 title: Obtaining Topological Signatures
 layout: post
-post-image: "https://www.nps.gov/media/photo/gallery-item.htm?pg=1943235&id=F2B78E02-155D-451F-673B4C52047F6EFE&gid=F2A12E7F-155D-451F-679DDC3CE3B7367E"
+post-image: "https://www.nps.gov/npgallery/GetAsset/99BDDE56-1DD8-B71B-0BF0D34E843D9014/proxy/hires?"
 description: Gaining topological signatures from data, and comparing them
 tags:
 - persistence
