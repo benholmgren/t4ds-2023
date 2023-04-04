@@ -79,6 +79,35 @@ We can also go ahead and view all of the glaciers in GNP in the same way.
 plot(glaciers_66)
 ```
 
-![glacier2](../assets/images/glacier1.png)
+![glacier2](../assets/images/glacier2.png)
 
+Now, we can't do topological data analysis using polygon objects. Rather, we need to somehow obtain a 
+point cloud indicative of each glacier. To do this, we can randomly sample 1000 points within each 
+polygon using the SP library.
+
+Let's try sampling points within the first glacier.
+
+```
+pts <- spsample(first,n=1000,"random")
+pts
+```
+
+To plot this, we can convert the sampled points to a data frame format, and view the resulting point 
+cloud. For ease of visibility, each point will be plotted as a small, filled in circle.
+
+```
+X <- as.data.frame(pts)
+plot(X, pch=20, cex=.5)
+```
+
+Notice that we are starting to see the shape of the first glacier. Let's make a denser point cloud 
+by sampling 10000 points instead.
+
+```
+pts <- spsample(first,n=10000,"random")
+X <- as.data.frame(pts)
+plot(X, pch=20, cex=.5)
+```
+
+![glacier3](../assets/images/glacier3.png)
 
